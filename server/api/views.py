@@ -1,7 +1,13 @@
 from django.shortcuts import render
-from .models import Customer
+from .models import Customer, Tournament, Player, Round, Match
 from rest_framework import generics
-from .serializers import CustomerSerializer
+from .serializers import (
+    CustomerSerializer,
+    TournamentSerializer,
+    PlayerSerializer,
+    RoundSerializer,
+    MatchSerializer,
+)
 
 
 class CustomerCreate(generics.CreateAPIView):
@@ -32,3 +38,15 @@ class CustomerDelete(generics.RetrieveDestroyAPIView):
     # API endpoint that allows a customer record to be deleted.
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
+
+
+class TournamentCreate(generics.CreateAPIView):
+    # API endpoint that allows creation of a new tournament
+    queryset = (Tournament.objects.all(),)
+    serializer_class = CustomerSerializer
+
+
+class TournamentList(generics.ListAPIView):
+    # API endpoint that allows tournament to be viewed.
+    queryset = Tournament.objects.all()
+    serializer_class = TournamentSerializer

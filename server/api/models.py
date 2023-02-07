@@ -38,6 +38,11 @@ def validate_players(value):
         )
 
 
+class User(models.Model):
+    name = models.CharField("Name", max_length=200)
+    favorite_genre = models.CharField(max_length=200)
+
+
 class Tournament(models.Model):
     name = models.CharField("Name", max_length=100)
     bracket_size = models.PositiveSmallIntegerField(validators=[validate_bracket_size])
