@@ -50,3 +50,39 @@ class TournamentList(generics.ListAPIView):
     # API endpoint that allows tournament to be viewed.
     queryset = Tournament.objects.all()
     serializer_class = TournamentSerializer
+
+
+class PlayerCreate(generics.CreateAPIView):
+    # API endpoint that allows creation of a new player
+    queryset = (Player.objects.all(),)
+    serializer_class = CustomerSerializer
+
+
+class PlayerList(generics.ListAPIView):
+    # API endpoint that allows player to be viewed.
+    queryset = Player.objects.all()
+    serializer_class = TournamentSerializer
+
+
+class RoundCreate(generics.CreateAPIView):
+    # API endpoint that allows creation of a new round
+    queryset = (Round.objects.all(),)
+    serializer_class = CustomerSerializer
+
+
+class RoundList(generics.ListAPIView):
+    # API endpoint that allows round to be viewed.
+    queryset = Round.objects.all()
+    serializer_class = RoundSerializer
+
+
+class MatchCreate(generics.CreateAPIView):
+    # API endpoint that allows creation of a new match
+    queryset = (Match.objects.all(),)
+    serializer_class = CustomerSerializer
+
+
+class MatchList(generics.ListAPIView):
+    # API endpoint that allows match to be viewed.
+    queryset = Match.objects.all()
+    serializer_class = MatchSerializer
